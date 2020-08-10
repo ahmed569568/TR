@@ -1,0 +1,163 @@
+<app-navbar></app-navbar>
+<app-sidenav></app-sidenav>
+<div id="container1">
+  <h1 class="d-block text-right thelogo mx-5">تسجيل المشتركين</h1>
+  <div class="bgwhite d-block text-right">
+    <form
+      [formGroup]="addMemberForm"
+      class="p-2"
+      (ngSubmit)="onSubmit(addMemberForm.value)"
+    >
+      <div class="d-lg-flex flex-row-reverse">
+        <div class="form-group m-4 flex-grow-1">
+          <label class="text-right m-2 w-100">
+            :الاسم الرباعي
+            <input
+              type="text"
+              class="form-control"
+              dir="rtl"
+              formControlName="name"
+            />
+          </label>
+        </div>
+        <div class="form-group m-4 flex-grow-1">
+          <label class="text-right m-2 w-100">
+            :رقم الهوية
+            <input
+              type="text"
+              class="form-control"
+              dir="rtl"
+              formControlName="id"
+            />
+          </label>
+        </div>
+      </div>
+      <div class="d-lg-flex flex-row-reverse">
+        <div class="form-group m-4 flex-grow-1">
+          <label class="text-right m-2 w-100">
+            :الايميل
+            <input
+              type="text"
+              class="form-control"
+              dir="rtl"
+              formControlName="email"
+            />
+          </label>
+        </div>
+        <div class="form-group m-4 flex-grow-1">
+          <label class="text-right m-2 w-100">
+            :رقم الهاتف
+            <input
+              type="text"
+              class="form-control"
+              dir="rtl"
+              formControlName="homephone"
+            />
+          </label>
+        </div>
+      </div>
+      <div class="d-lg-flex flex-row-reverse">
+        <div class="form-group m-4 flex-grow-1">
+          <label class="text-right m-2 w-100">
+            :رقم الجوال
+            <input
+              type="text"
+              class="form-control"
+              dir="rtl"
+              formControlName="mobilephone"
+            />
+          </label>
+        </div>
+        <div class="form-group m-4 flex-grow-1">
+          <label class="text-right m-2 w-100">
+            : 1 رقم الحساب
+            <input
+              type="text"
+              class="form-control"
+              dir="rtl"
+              formControlName="account1"
+            />
+          </label>
+        </div>
+      </div>
+      <div class="d-lg-flex flex-row-reverse">
+        <div class="form-group m-4 flex-grow-1" *ngIf="addMemberForm.get('account1').value">
+          <label class="text-right m-2 w-100">
+            : 2 رقم الحساب
+            <input
+              type="text"
+              class="form-control"
+              dir="rtl"
+              formControlName="account2"
+            />
+          </label>
+        </div>
+        <div class="form-group m-4 flex-grow-1"  *ngIf="addMemberForm.get('account2').value">
+          <label class="text-right m-2 w-100">
+            : 3 رقم الحساب
+            <input
+              type="text"
+              class="form-control"
+              dir="rtl"
+              formControlName="account3"
+            />
+          </label>
+        </div>
+      </div>
+      <div class="d-lg-flex flex-row-reverse">
+        <div class="form-group m-4 flex-grow-1"  *ngIf="addMemberForm.get('account3').value">
+          <label class="text-right m-2 w-100">
+            : 4 رقم الحساب
+            <input
+              type="text"
+              class="form-control"
+              dir="rtl"
+              formControlName="account4"
+            />
+          </label>
+        </div>
+        <div class="form-group m-4 flex-grow-1"  *ngIf="addMemberForm.get('account4').value">
+          <label class="text-right m-2 w-100">
+            : 5 رقم الحساب
+            <input
+              type="text"
+              class="form-control"
+              dir="rtl"
+              formControlName="account5"
+            />
+          </label>
+        </div>
+      </div>
+      <div class="d-lg-flex flex-row-reverse mx-2">
+        <div class="form-group d-block d-lg-flex mx-auto" dir="rtl">
+          <image-upload
+            url="http://mockbin.org/request"
+            [max]="1"
+            buttonCaption="اضافة"
+            dropBoxMessage="اضافة صورة حديثة للمشترك"
+            clearButtonCaption="الغاء"
+            [style]="customStyle"
+            [extensions]="['jpg', 'jpeg', 'png']"
+          ></image-upload>
+        </div>
+        <div class="form-group d-block d-lg-flex mx-auto" dir="rtl">
+          <image-upload
+            url="http://mockbin.org/request"
+            buttonCaption="اضافة"
+            dropBoxMessage="اضافة صور وثائق رسمية"
+            clearButtonCaption="الغاء"
+            [max]="1"
+            [style]="customStyle"
+            [extensions]="['jpg', 'jpeg', 'png']"
+          ></image-upload>
+        </div>
+      </div>
+
+      <div class="text-left">
+        <button type="submit" name="submit" class="btn btn-dark m-3">
+          حفظ
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

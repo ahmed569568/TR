@@ -1,0 +1,56 @@
+<app-navbar></app-navbar>
+<app-sidenav></app-sidenav>
+<div id="container1">
+  <h1 class="d-block text-right thelogo mx-5">المشتركين</h1>
+  <div class="cont d-flex flex-column">
+    <div class="text-right mx-5 mt-4 txt"></div>
+    <div class="flex-grow-1 text-right table-responsive thetable" dir="rtl">
+      <table class="table">
+        <thead>
+          <tr class="text-light members">
+            <th scope="col">الرقم التسلسلي</th>
+            <th scope="col">الاسم</th>
+            <th scope="col">عدد الاقساط المسددة للقرض العادي</th>
+            <th scope="col">عدد الاقساط المتبقية للقرض العادي</th>
+            <th scope="col">قيمة القرض</th>
+            <th scope="col">المتبقي من القرض</th>
+            <th scope="col">تاريخ آخر قسط</th>
+            <th scope="col">ملاحظات</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="
+                let member of members | paginate: { itemsPerPage: 10, currentPage: p }
+              ">
+            <td [routerLink]="['/members', member.index]" class="thetd">{{ member.index }}</td>
+            <td [routerLink]="['/members', member.index]" class="thetd">
+              {{ member.name }}
+            </td>
+
+            <td>{{ member.noofpayeddepts }}</td>
+            <td>{{ member.noofremainingdepts }}</td>
+            <td>{{ member.deptamount | number}}</td>
+            <td>{{ member.remainingamount | number}}</td>
+            <td>{{ member.lastdept | date }}</td>
+            <td>{{ member.notes }}</td>
+            <td class="d-flex flex-row">
+              <button type="button" class="btn btn-dark m-1 d-inline" (click)="editDialog(member.index)">
+                <i class="fas fa-edit"></i>
+              </button>
+              <button type="button" class="btn btn-dark m-1 d-inline" (click)="deleteDialog(member.index)">
+                <i class="fas fa-trash-alt"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <pagination-controls (pageChange)="p = $event" previousLabel="السابق" nextLabel="التالي"></pagination-controls>
+    </div>
+  </div>
+  <button type="button" class="btn btn-dark m-5" routerLink="/add-member">
+    اضافة مشترك <i class="fas fa-user-plus"></i>
+  </button>
+</div>
+
+

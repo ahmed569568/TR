@@ -1,0 +1,14 @@
+<div class="d-flex flex-column">
+    <i class="fas fa-user-plus fa-4x mx-auto my-2"></i>
+    <div class="my-2 mx-auto">هل انت متاكد من رغبتك في اضافة مستخدم</div>
+    <div class="my-2 mx-auto">
+      <button class="btn btn-success mx-2" (click)="onNoClick()">لا</button>
+      <button
+        type="submit"
+        class="btn btn-success mx-2"
+        [mat-dialog-close]="data"
+      >
+        نعم
+      </button>
+    </div>
+  </div>

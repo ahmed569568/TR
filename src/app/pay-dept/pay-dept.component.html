@@ -1,0 +1,72 @@
+<app-navbar></app-navbar>
+<app-sidenav></app-sidenav>
+<div id="container1">
+  <h1 class="d-block text-right thelogo mx-5">إدخال البيانات المالية</h1>
+  <div class="bgwhite d-block text-right">
+    <form [formGroup]="financialTransactionsForm" class="p-2" (ngSubmit)="onSubmit(financialTransactionsForm.value)">
+      <div class="d-lg-flex flex-row-reverse">
+        <div class="form-group m-4  flex-grow-1">
+          <label for="exampleInput4" class="bigFont">التسجيل عن شهر</label>
+          <select class="form-control" id="exampleInput4" dir="rtl" formControlName="month">
+            <option>يناير</option>
+            <option>فبراير</option>
+            <option>مارس</option>
+            <option>ابريل</option>
+            <option>مايو</option>
+            <option>يونيو</option>
+            <option>يوليو</option>
+            <option>اغسطس</option>
+            <option>سبتمبر</option>
+            <option>اكتوبر</option>
+            <option>نوفمبر</option>
+            <option>ديسمبر</option>
+          </select>
+        </div>
+        <div class="form-group m-4  flex-grow-1">
+          <label for="exampleInput6" class="bigFont">التاريخ</label>
+          <input type="date" class="form-control" id="exampleInput6" formControlName="date" dir="rtl" />
+        </div>
+      </div>
+
+
+      <div class="d-lg-flex flex-row-reverse">
+        <div class="form-group m-4  flex-grow-1">
+          <label for="exampleInput5" class="bigFont">رقم الحساب</label>
+          <input type="" class="form-control" id="exampleInput5" formControlName="account" dir="rtl"
+            [matAutocomplete]="auto" />
+        </div>
+      </div>
+      <div class="d-lg-flex flex-row-reverse" *ngIf="theindex">
+        <div class="form-group m-4  flex-grow-1">
+          <label class="bigFont">الحسابات المرتبطة</label>
+          <ng-select [multiple]="true" dir="rtl">
+            <ng-option *ngFor="let member of theindex" [value]="member.name">{{member.name}} - {{member.type}}</ng-option>
+          </ng-select>
+        </div>
+      </div>
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option.name">
+          {{ option.account1 }} - {{ option.account2 }} - {{option.name}}
+        </mat-option>
+      </mat-autocomplete>
+    </form>
+    <div class="flex-grow-1 text-right table-responsive thetable" dir="rtl" *ngIf="thedata">
+      <table class="table">
+        <thead>
+          <tr class="bg-success text-light">
+            <th scope="col">قيمة اخر استثمار</th>
+            <th scope="col">المتبقي من آخر قرض</th>
+            <th scope="col">الغرامات المتراكمة</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{ thedata["investments"][0]["amount"] | number}}</td>
+            <td>{{ thedata["depts"]["current-depts"][0]["remainingamount"] | number}}</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

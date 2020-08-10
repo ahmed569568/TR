@@ -1,0 +1,83 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+@import "~@ng-select/ng-select/themes/default.theme.css";
+
+#container1 {
+  display: block;
+  margin: 10px;
+  margin-top: 80px;
+  color: #444;
+}
+button {
+  border-radius: 10px !important;
+}
+body {
+  background-color: #fff;
+}
+.current {
+  background: #444 !important;
+  color: #fff !important;
+}
+@media (min-width: 768px) {
+  #container1 {
+    margin-right: 260px;
+    transition: all 0.3s;
+  }
+  #container1.size {
+    margin-right: 10px;
+  }
+}
+@media (max-width: 768px) {
+  .thenav {
+    margin: 0 -30px;
+  }
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+mat-dialog-container {
+  border-radius: 15px !important;
+}
+.bgwhite {
+  background-color: white;
+  border-radius: 15px;
+}
+.bigFont {
+  font-size: larger;
+  font-weight: 700;
+}
+.thetable {
+  width: 90%;
+  margin: 1% 5% 5% 5%;
+  border-radius: 15px !important;
+}
+.thelogo {
+  color: white;
+}
+form * {
+  font-size: medium;
+}
+table * {
+  font-size: medium;
+  font-weight: 700;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+
+image-upload{
+  background-color: #444 !important;
+}

@@ -1,0 +1,137 @@
+<app-navbar></app-navbar>
+<app-sidenav></app-sidenav>
+<div id="container1">
+  <h1 class="d-block text-right thelogo mx-5">ادخال استثمار</h1>
+  <div class="bgwhite d-block text-right">
+    <form
+      [formGroup]="newInvestmentForm"
+      class="p-2"
+      (ngSubmit)="onSubmit(newInvestmentForm.value)"
+    >
+      <div class="form-group m-4">
+        <label for="exampleInput1" class="bigFont">اسم النشاط</label>
+        <input
+          type="text"
+          class="form-control"
+          id="exampleInput1"
+          formControlName="name"
+          dir="rtl"
+        />
+      </div>
+
+      <div class="form-group m-4">
+        <label for="exampleInput11" class="bigFont">موقعه</label>
+        <input
+          type="text"
+          class="form-control"
+          id="exampleInput11"
+          formControlName="location"
+          dir="rtl"
+        />
+      </div>
+      <div class="form-group m-4">
+        <label for="exampleInput111" class="bigFont">صاحب الاستثمار</label>
+        <input
+          type="text"
+          matInput
+          [matAutocomplete]="auto"
+          class="form-control"
+          formControlName="owner"
+          dir="rtl"
+          id="exampleInput111"
+        />
+      </div>
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option
+          *ngFor="let option of filteredOptions | async"
+          [value]="option.name"
+        >
+          {{ option.name }}
+        </mat-option>
+      </mat-autocomplete>
+      <div class="d-lg-flex flex-row-reverse">
+        <div class="form-group m-4 flex-grow-1">
+          <label for="exampleInput2" class="bigFont">تاريخ الشراء</label>
+          <input
+            type="date"
+            class="form-control"
+            id="exampleInput2"
+            formControlName="buyingTime"
+            dir="rtl"
+          />
+        </div>
+
+        <div class="form-group m-4 flex-grow-1">
+          <label for="exampleInput3" class="bigFont">قيمة الشراء</label>
+          <input
+            type="number"
+            class="form-control"
+            id="exampleInput3"
+            formControlName="price"
+            dir="rtl"
+          />
+        </div>
+      </div>
+      <div class="m-4">
+        <i class="fas fa-paperclip fa-lg d-inline mx-2"></i>
+        <div class="bigFont d-inline">صورة العقد</div>
+      </div>
+      <div class="d-lg-flex flex-row-reverse">
+        <div class="form-group m-4 flex-grow-1">
+          <label for="exampleInput5" class="bigFont">ايرادت سابقة</label>
+          <input
+            type="number"
+            class="form-control"
+            id="exampleInput5"
+            formControlName="pastIncome"
+            dir="rtl"
+          />
+        </div>
+        <div class="form-group m-4 flex-grow-1">
+          <label for="exampleInput6" class="bigFont">ايرادات لاحقة</label>
+          <input
+            type="number"
+            class="form-control"
+            id="exampleInput6"
+            formControlName="futureIncome"
+            dir="rtl"
+          />
+        </div>
+      </div>
+      <div class="mx-5 mt-5 flex-grow-1 text-right bigFont">
+        الاستهلاك السنوي للعقار
+      </div>
+      <div
+        class="flex-grow-1 text-right table-responsive thetable bigFont"
+        dir="rtl"
+      >
+        <table class="table">
+          <thead>
+            <tr class="bg-success text-light">
+              <th scope="col">تاريخ الشراء</th>
+              <th scope="col">حصة العضو في راس المال</th>
+              <th scope="col">عدد السنوات</th>
+              <th scope="col">النسبة المئوية</th>
+
+              <th scope="col">الاجمالي</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2019-4-3</td>
+              <td>1088</td>
+              <td>2</td>
+              <td>20%</td>
+              <td>500</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="d-block text-left">
+        <button type="submit" name="submit" class="btn btn-success mx-4">
+          حفظ البيانات
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

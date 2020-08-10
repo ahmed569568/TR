@@ -1,0 +1,14 @@
+<app-navbar></app-navbar>
+<app-sidenav></app-sidenav>
+<div id="container1">
+    <h1 class="d-block text-right thelogo mx-5">الاشعارات</h1>
+    <div *ngFor="let message of messages" class="not m-3 p-2 text-right d-flex flex-row-reverse">
+      <i class="fas fa-bell fa-2x my-auto p-2"></i>
+      
+      <span class="thebold  my-auto m-1">
+        :{{ message.name }}
+      </span>
+      <span class="p-2 my-auto">{{ message.message }}</span>
+    </div>
+  </div>
+  

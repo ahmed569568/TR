@@ -1,0 +1,102 @@
+<app-navbar></app-navbar>
+<app-sidenav></app-sidenav>
+<div id="container1">
+  <h1 class="d-block text-right thelogo mx-5">ادخال قرض</h1>
+  <div class="bgwhite d-block text-right">
+    <form [formGroup]="newDeptForm" class="p-2" (ngSubmit)="onSubmit(newDeptForm.value)">
+      <div class="d-lg-flex flex-row-reverse">
+        <div class="form-group m-4  flex-grow-1">
+
+          <label for="exampleInput7" class="bigFont">اسم المشترك</label>
+          <input type="text" class="form-control" id="exampleInput7" formControlName="name" [matAutocomplete]="auto"
+            dir="rtl" /></div>
+        <div class="form-group m-4  flex-grow-1">
+          <label for="exampleInput8" class="bigFont">الشخص المستفيد</label>
+          <select class="form-control" id="exampleInput8" dir="rtl" (change)="toggle2(newDeptForm.value.recipient)"
+            formControlName="recipient">
+            <option>الشخص نفسه</option>
+            <option>مستخدم آخر مسجل بالصندوق</option>
+            <option>شخص من خارج الصندوق</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group m-4 d-lg-flex flex-row-reverse" *ngIf="show2 === 3">
+        <div class="w-100 m-2">
+          <label for="exampleInput9" class="bigFont">اسم الشخص المستفيد</label>
+          <input type="text" class="form-control" id="exampleInput9" formControlName="recipientname"
+            [matAutocomplete]="auto2" dir="rtl" /></div>
+      </div>
+      <div class="form-group m-4 d-lg-flex flex-row-reverse" *ngIf="show2 === 2">
+        <div class="w-100 m-2">
+          <label for="exampleInput11" class="bigFont">اسم الشخص المستفيد</label>
+          <input type="text" class="form-control" id="exampleInput11" formControlName="recipientname" dir="rtl" /></div>
+      </div>
+      <mat-autocomplete #auto2="matAutocomplete">
+        <mat-option *ngFor="let option of filteredOptions2 | async" [value]="option.name">
+          {{ option.name }}
+        </mat-option>
+      </mat-autocomplete>
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option.name">
+          {{ option.name }}
+        </mat-option>
+      </mat-autocomplete>
+      <div class="form-group m-4">
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="deptType" id="inlineRadio2" value="urgentDept"
+            formControlName="deptType" (change)="toggle1('urgant')" />
+          <label class="form-check-label" for="inlineRadio2">قرض فوري</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="deptType" id="inlineRadio1" value="normaldept"
+            formControlName="deptType" (change)="toggle1('normal')" />
+          <label class="form-check-label" for="inlineRadio1">قرض عادي</label>
+        </div>
+        <div class="bigFont d-inline pl-2">نوع القرض</div>
+      </div>
+      <div class="d-lg-flex flex-row-reverse">
+        <div class="form-group m-4 flex-grow-1">
+          <label for="exampleInput1" class="bigFont">مقدار القرض</label>
+          <input type="number" class="form-control" id="exampleInput1" formControlName="amount" dir="rtl" />
+          <span *ngIf="show">بحد اقصى 5000 ريال</span>
+        </div>
+        <div class="form-group m-4 flex-grow-1">
+          <label for="exampleInput6" class="bigFont">المعدل الشهري لتسديد القرض</label>
+          <input type="text" class="form-control" id="exampleInput6" formControlName="mean" dir="rtl" />
+        </div>
+      </div>
+      <div class="d-lg-flex flex-row-reverse">
+        <div class="form-group m-4 flex-grow-1">
+          <label for="exampleInput88" class="bigFont">رقم الشيك للقرض</label>
+          <input type="number" class="form-control" id="exampleInput88" formControlName="chequeNo" dir="rtl" />
+        </div>
+        <div class="form-group m-4 flex-grow-1">
+          <label for="exampleInput2" class="bigFont">تاريخ الشيك للقرض</label>
+          <input type="date" class="form-control" id="exampleInput2" formControlName="chequeDate" dir="rtl" />
+        </div>
+      </div>
+
+      <div class="d-lg-flex flex-row-reverse">
+        <div class="form-group m-4 flex-grow-1">
+          <label for="exampleInput3" class="bigFont">مدة القرض</label>
+          <input type="text" class="form-control" id="exampleInput3" formControlName="deptDuration" dir="rtl" [value]="theResult" />
+        </div>
+        <div class="form-group m-4 flex-grow-1">
+          <label for="exampleInput4" class="bigFont">تاريخ بداية تسديد القرض</label>
+          <input type="date" class="form-control" id="exampleInput4" formControlName="start" dir="rtl" />
+        </div>
+        <div class="form-group m-4 flex-grow-1">
+          <label for="exampleInput5" class="bigFont">تاريخ نهاية تسديد القرض</label>
+          <input type="date" class="form-control" id="exampleInput5" formControlName="end" dir="rtl" [value]="theEnd" />
+        </div>
+      </div>
+
+      <div class="d-block text-left">
+        <button type="submit" name="submit" class="btn btn-dark mx-4" [disabled]="!newDeptForm.valid">
+          حفظ البيانات
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

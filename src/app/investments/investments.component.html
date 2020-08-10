@@ -1,0 +1,75 @@
+<app-navbar></app-navbar>
+<app-sidenav></app-sidenav>
+<div id="container1">
+  <h1 class="d-block text-right thelogo mx-5">
+    الاستثمارات
+  </h1>
+  <div class="bgwhite d-block text-right">
+    <div class="py-3 bigFont">
+      <div class="flex-grow-1 text-right table-responsive thetable" dir="rtl">
+        <table class="table">
+          <thead>
+            <tr class="bg-dark text-light">
+              <th scope="col">الرقم التسلسلي</th>
+              <th scope="col">الاسم</th>
+              <th scope="col">قيمة الشراء</th>
+              <th scope="col">ايرادات سابقة</th>
+              <th scope="col">ايرادات لاحقة</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              *ngFor="
+                let investment of investments
+                  | paginate: { itemsPerPage: 10, currentPage: p }
+              "
+            >
+              <td>{{ investment.index }}</td>
+              <td
+                [routerLink]="['/investments', investment.index]"
+                class="thetd"
+              >
+                {{ investment.name }}
+              </td>
+              <td>{{ investment.amount | number }}</td>
+              <td>{{ investment.pastincome | number }}</td>
+              <td>{{ investment.futureincome | number }}</td>
+
+              <td class="d-flex flex-row">
+                <button
+                  type="button"
+                  class="btn btn-dark m-1 d-inline"
+                  (click)="openDialog(investment.index)"
+                >
+                  <i class="fas fa-edit"></i>
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-dark m-1 d-inline"
+                  (click)="deleteDialog(investment.index)"
+                >
+                  <i class="fas fa-trash-alt"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <pagination-controls
+          (pageChange)="p = $event"
+          previousLabel="السابق"
+          nextLabel="التالي"
+        ></pagination-controls>
+      </div>
+    </div>
+    <div class="text-left">
+      <button
+        type="button"
+        class="btn btn-dark m-5"
+        routerLink="/newinvestment"
+      >
+        اضافة استثمار <i class="fas fa-investment-plus"></i>
+      </button>
+    </div>
+  </div>
+</div>

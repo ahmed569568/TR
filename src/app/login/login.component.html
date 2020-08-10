@@ -1,0 +1,47 @@
+<div class="form">
+<div class="container">
+    <div class="row ">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card my-5 radius">
+          <div class="card-body">
+            <i class="fas fa-sign-in-alt d-block mx-auto my-4 w-50 text-center"></i>
+            <h2 class="card-title text-center my-3">تسجيل الدخول</h2>
+            <form class="form-signin" [formGroup]="addAdmin">
+              <input
+                type="text"
+                id="inputName"
+                class="form-control radius my-2"
+                dir="rtl"
+                placeholder="الاسم بالكامل"
+              />
+              <input
+                type="email"
+                id="inputEmail"
+                class="form-control radius my-2"
+                dir="rtl"
+                placeholder="الايميل"
+              />
+              <input
+                type="text"
+                id="inputPhone"
+                class="form-control radius my-2"
+                dir="rtl"
+                placeholder="رقم الهاتف"
+              />
+              <input
+                type="password"
+                id="inputPassword"
+                class="form-control radius my-2"
+                placeholder="الرقم السري"
+                dir="rtl"
+              />
+              <button class="btn btn-dark d-block mx-auto radius px-5 py-1" type="submit" routerLink="/main">
+                التاكيد
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

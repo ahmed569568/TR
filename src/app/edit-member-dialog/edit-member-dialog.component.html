@@ -1,0 +1,112 @@
+<h2 class="m-2 text-center w-100">تعديل مشترك</h2>
+<form [formGroup]="editForm">
+  <div class="d-md-flex flex-row-reverse">
+    <label class="text-right m-2 w-100">
+      :الاسم الرباعي
+      <input
+        type="text"
+        class="form-control"
+        dir="rtl"
+        formControlName="name"
+      />
+    </label>
+  </div>
+  <div class="d-md-flex flex-row-reverse">
+    <label class="text-right m-2 w-100">
+      :رقم الهوية
+      <input type="text" class="form-control" dir="rtl" formControlName="id" />
+    </label>
+    <label class="text-right m-2 w-100">
+      :الايميل
+      <input
+        type="text"
+        class="form-control"
+        dir="rtl"
+        formControlName="email"
+      />
+    </label>
+  </div>
+  <div class="d-md-flex flex-row-reverse">
+    <label class="text-right m-2 w-100">
+      :رقم الهاتف
+      <input
+        type="text"
+        class="form-control"
+        dir="rtl"
+        formControlName="homephone"
+      />
+    </label>
+    <label class="text-right m-2 w-100">
+      :رقم الجوال
+      <input
+        type="text"
+        class="form-control"
+        dir="rtl"
+        formControlName="mobilephone"
+      />
+    </label>
+  </div>
+  <div class="d-md-flex flex-row-reverse">
+    <label class="text-right m-2 w-100">
+      :1 رقم الحساب
+      <input
+        type="text"
+        class="form-control"
+        dir="rtl"
+        formControlName="account1"
+      />
+    </label>
+    <label class="text-right m-2 w-100" *ngIf="editForm.get('account1').value">
+      :رقم الحساب 2
+      <input
+        type="text"
+        class="form-control"
+        dir="rtl"
+        formControlName="account2"
+      />
+    </label>
+  </div>
+  <div class="d-md-flex flex-row-reverse">
+    <label class="text-right m-2 w-100" *ngIf="editForm.get('account2').value">
+      :3 رقم الحساب
+      <input
+        type="text"
+        class="form-control"
+        dir="rtl"
+        formControlName="account3"
+      />
+    </label>
+    <label class="text-right m-2 w-100" *ngIf="editForm.get('account3').value">
+      :رقم الحساب 4
+      <input
+        type="text"
+        class="form-control"
+        dir="rtl"
+        formControlName="account4"
+      />
+    </label>
+  </div>
+  <div
+    class="d-md-flex flex-row-reverse"
+    *ngIf="editForm.get('account5').value"
+  >
+    <label class="text-right m-2 w-100">
+      :5 رقم الحساب
+      <input
+        type="text"
+        class="form-control"
+        dir="rtl"
+        formControlName="account4"
+      />
+    </label>
+  </div>
+  <button class="btn btn-success mx-2" (click)="onNoClick()">الغاء</button>
+  <button
+    type="submit"
+    class="btn btn-success mx-2"
+    [mat-dialog-close]="editForm.value"
+    [disabled]="!editForm.valid"
+  >
+    حفظ
+  </button>
+</form>

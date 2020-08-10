@@ -1,0 +1,11 @@
+#container1 {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-rows: 120px 120px 120px;
+  grid-gap: 15px;
+  font-weight: 700;
+}
+.card {
+  border-radius: 10px;
+  cursor: pointer;
+}

@@ -1,0 +1,76 @@
+<h2 class="m-2 text-center w-100">تعديل استثمار</h2>
+<form [formGroup]="editInvestForm">
+  <div class="d-md-flex flex-row-reverse">
+    <label class="text-right m-2  w-100">
+      الاسم
+      <input
+        type="text"
+        class="form-control"
+        dir="rtl"
+        formControlName="name"
+      />
+    </label>
+  </div>
+
+  <div class="d-md-flex flex-row-reverse">
+    <label class="text-right m-2  w-100">
+      الموقع
+      <input
+        type="text"
+        class="form-control"
+        dir="rtl"
+        formControlName="location"
+      />
+    </label>
+    <label class="text-right m-2 w-100">
+      تاريخ الشراء
+      <input
+        type="text"
+        class="form-control"
+        dir="rtl"
+        formControlName="date"
+      />
+    </label>
+  </div>
+  <div class="d-md-flex flex-row-reverse">
+    <label class="text-right m-2 w-100">
+     قيمة الشراء
+      <input
+        type="text"
+        class="form-control"
+        dir="rtl"
+        formControlName="amount"
+      />
+    </label>
+    
+  </div>
+  <div class="d-md-flex flex-row-reverse">
+    <label class="text-right m-2 w-100">
+        ايرادات سابقة
+         <input
+           type="text"
+           class="form-control"
+           dir="rtl"
+           formControlName="pastincome"
+         />
+       </label>
+    <label class="text-right m-2 w-100">
+     ايرادات لاحقة
+      <input
+        type="text"
+        class="form-control"
+        dir="rtl"
+        formControlName="futureincome"
+      />
+    </label>
+  </div>
+  <button class="btn btn-success mx-2" (click)="onNoClick()">الغاء</button>
+  <button
+    type="submit"
+    class="btn btn-success mx-2"
+    [mat-dialog-close]="editInvestForm.value"
+    [disabled]="!editInvestForm.valid"
+  >
+    حفظ
+  </button>
+</form>

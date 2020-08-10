@@ -1,0 +1,217 @@
+<app-navbar></app-navbar> <app-sidenav></app-sidenav>
+<div id="container1" *ngIf="displayedMember">
+  <div class="cont row">
+    <div class="d-flex d-sm-flex flex-row-reverse row">
+      <div class="col-sm">
+        <img
+          [src]="displayedMember.personalImage"
+          alt="personal image"
+          class="rounded image mr-0"
+        />
+      </div>
+    </div>
+    <div class="flex-grow-1 text-right my-3 mx-5">
+      <div class="d-block m-1">الاسم الرباعي</div>
+      <div class="d-block m-1">
+        {{ displayedMember.name }}
+      </div>
+    </div>
+    <div class="flex-grow-1 text-right my-3 mx-5">
+      <div class="d-block m-1">رقم الهوية</div>
+      <div class="d-block m-1">{{ displayedMember.id }}</div>
+    </div>
+    <div class="flex-grow-1 text-right my-3 mx-5">
+      <div class="d-block m-1">الايميل</div>
+      <div class="d-block m-1">{{ displayedMember.email }}</div>
+    </div>
+    <div
+      class="flex-grow-1 text-right row d-sm-flex flex-row-reverse my-3 mx-5"
+    >
+      <div class="col-sm m-0 p-0">
+        <div class="m-1">رقم الجوال</div>
+        <div class="m-1">{{ displayedMember.mobilephone }}</div>
+      </div>
+      <div class="col-sm m-0 p-0">
+        <div class="m-1">رقم الهاتف</div>
+        <div class="m-1">{{ displayedMember.homephone }}</div>
+      </div>
+    </div>
+    <div
+      class="flex-grow-1 text-right row d-sm-flex flex-row-reverse my-3 mx-5"
+    >
+      <div class="col-sm m-0 p-0">
+        <div class="m-1">1 رقم الحساب</div>
+        <div class="m-1">{{ displayedMember.account1 }}</div>
+      </div>
+      <div class="col-sm m-0 p-0" *ngIf="displayedMember.account2">
+        <div class="m-1">رقم الحساب 2</div>
+        <div class="m-1">{{ displayedMember.account2 }}</div>
+      </div>
+    </div>
+    <div
+      class="flex-grow-1 text-right row d-sm-flex flex-row-reverse my-3 mx-5"
+    >
+      <div class="col-sm m-0 p-0" *ngIf="displayedMember.account3">
+        <div class="m-1">3 رقم الحساب</div>
+        <div class="m-1">{{ displayedMember.account3 }}</div>
+      </div>
+      <div class="col-sm m-0 p-0" *ngIf="displayedMember.account4">
+        <div class="m-1">رقم الحساب 4</div>
+        <div class="m-1">{{ displayedMember.account4 }}</div>
+      </div>
+    </div>
+    <div
+      class="flex-grow-1 text-right row d-sm-flex flex-row-reverse my-3 mx-5"
+      *ngIf="displayedMember.account5"
+    >
+      <div class="col-sm m-0 p-0">
+        <div class="m-1">5 رقم الحساب</div>
+        <div class="m-1">{{ displayedMember.account5 }}</div>
+      </div>
+    </div>
+    <div class="d-flex d-sm-flex flex-row-reverse row">
+      <div class="m-5">
+        <div>صور مستندات شخصية</div>
+        <ks-modal-gallery
+          [id]="0"
+          [modalImages]="modalImages"
+          [currentImageConfig]="{
+            description: customDescription,
+            loadingConfig: { enable: false, type: 1 }
+          }"
+          [slideConfig]="{ infinite: false, sidePreviews: { show: false } }"
+          [buttonsConfig]="{ visible: false, strategy: 1 }"
+          [previewConfig]="{ visible: false }"
+          [dotsConfig]="{ visible: false }"
+        ></ks-modal-gallery>
+      </div>
+    </div>
+    <div class="mx-5 mt-5 flex-grow-1 text-right">الاشتراكات</div>
+    <div class="flex-grow-1 text-right table-responsive thetable" dir="rtl">
+      <table class="table">
+        <thead>
+          <tr class="bg-success text-light">
+            <th scope="col">قيمة الاشتراك</th>
+            <th scope="col">عدد الاشتراكات المسدده</th>
+            <th scope="col">تاريخ آخر قسط</th>
+            <th scope="col">الغرامات</th>
+
+            <th scope="col">اجمالي الاشتراكات</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>101</td>
+            <td>10</td>
+            <td>2020-1-1</td>
+            <td>20</td>
+            <td>500</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="mx-5 mt-5 flex-grow-1 text-right">القروض</div>
+    <div class="flex-grow-1 text-right table-responsive thetable" dir="rtl">
+      <table class="table">
+        <thead>
+          <tr class="bg-success text-light">
+            <th scope="col">المستفيد من القرض</th>
+            <th scope="col">قيمة القروض</th>
+            <th scope="col">عدد الاقساط</th>
+            <th scope="col">الاقساط المسددة</th>
+            <th scope="col">الاقساط المتبقية</th>
+            <th scope="col">الغرامات</th>
+
+            <th scope="col">القيمة المتبقية</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>سها رمضان</td>
+            <td>1044</td>
+            <td>101</td>
+            <td>10</td>
+            <td>4444</td>
+            <td>20</td>
+            <td>122</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="mx-5 mt-5 flex-grow-1 text-right">استثمار 1</div>
+    <div class="flex-grow-1 text-right table-responsive thetable" dir="rtl">
+      <table class="table">
+        <thead>
+          <tr class="bg-success text-light">
+            <th scope="col">تاريخ الشراء</th>
+            <th scope="col">قيمة العقار</th>
+            <th scope="col">عدد سنوات الشراء</th>
+            <th scope="col">الارباح</th>
+
+            <th scope="col">حصة العضو في رأس المال</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2020-1-1</td>
+            <td>1052421</td>
+
+            <td>11</td>
+            <td>20111111</td>
+            <td>10%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="mx-5 mt-5 flex-grow-1 text-right">استثمار 2</div>
+    <div class="flex-grow-1 text-right table-responsive thetable" dir="rtl">
+      <table class="table">
+        <thead>
+          <tr class="bg-success text-light">
+            <th scope="col">تاريخ الشراء</th>
+            <th scope="col">قيمة العقار</th>
+            <th scope="col">عدد سنوات الشراء</th>
+            <th scope="col">الارباح</th>
+
+            <th scope="col">حصة العضو في رأس المال</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2020-1-1</td>
+            <td>1052421</td>
+
+            <td>11</td>
+            <td>20111111</td>
+            <td>10%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div
+      class="flex-grow-1 text-right row d-sm-flex flex-row-reverse my-3 mx-5"
+    >
+      <div class="col-sm m-0 p-0">
+        <button
+          type="button"
+          class="btn btn-outline-success m-2"
+          (click)="editDialog(displayedMember.index)"
+        >
+          تعديل
+        </button>
+      </div>
+      <div class="col-sm m-0 p-0">
+        <button
+          type="button"
+          class="btn btn-outline-success m-2"
+          (click)="refactoredDeleteDialog(displayedMember.index)"
+        >
+          حذف المشترك
+        </button>
+      </div>
+    </div>
+  </div>
+  <button type="button" class="btn btn-dark m-5" routerLink="/add-member">
+    اضافة مشترك <i class="fas fa-user-plus"></i>
+  </button>
+</div>

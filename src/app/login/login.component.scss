@@ -1,0 +1,18 @@
+.radius {
+    border-radius: 1rem;
+  }
+  ::placeholder {
+    text-align: center;
+  }
+  :host {
+    width: 100vw;
+    min-height: 100vh;
+    display: block;
+   background-color: white;
+  }
+  button{
+    background-color: #444;
+  }
+i{
+  font-size: 80px;
+}

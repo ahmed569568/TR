@@ -1,0 +1,146 @@
+<app-navbar></app-navbar>
+<app-sidenav></app-sidenav>
+<div id="container1" *ngIf="x">
+  <div class="cont d-flex flex-column py-2">
+    <div class="flex-grow-1 text-right my-3 mx-5">
+      <div class="d-block m-1">اسم النشاط</div>
+      <div class="d-block m-1">{{ investments[x].name}}</div>
+    </div>
+    <div class="flex-grow-1 text-right my-3 mx-5">
+      <div class="d-block m-1">موقعه</div>
+      <div class="d-block m-1">{{ investments[x].location }}</div>
+    </div>
+    <div class="flex-grow-1 text-right my-3 mx-5">
+      <div class="d-block m-1">تاريخ الشراء</div>
+      <div class="d-block m-1">{{ investments[x].date | date }}</div>
+    </div>
+    <div class="flex-grow-1 text-right row d-sm-flex flex-row-reverse my-3 mx-5">
+      <div class="col-sm m-0 p-0">
+        <div class="m-1">قيمة الشراء</div>
+        <div class="m-1">{{ investments[x].amount | number}}</div>
+      </div>
+
+    </div>
+    <div class="flex-grow-1 text-right row d-sm-flex flex-row-reverse my-3 mx-5">
+      <iframe src="../../assets/pdf/presntation.pdf" class="col-sm m-0 p-0"></iframe>
+
+    </div>
+    <div class="flex-grow-1 text-right row d-sm-flex flex-row-reverse my-3 mx-5">
+      <div class="col-sm m-0 p-0">
+        <div class="m-1">ايرادات سابقة</div>
+        <div class="m-1">{{ investments[x].pastincome | number}}</div>
+      </div>
+      <div class="col-sm m-0 p-0">
+        <div class="m-1">ايرادات لاحقة</div>
+        <div class="m-1">{{ investments[x].futureincome | number}}</div>
+      </div>
+    </div>
+    <div class="mx-5 mt-5 flex-grow-1 text-right">ايراد الاستثمار</div>
+    <div class="flex-grow-1 text-right table-responsive thetable" dir="rtl">
+      <table class="table">
+        <thead>
+          <tr class="bg-success text-light">
+            <th scope="col">الايراد</th>
+            <th scope="col">التاريخ</th>
+            <th scope="col">الاجمالي</th>
+            <th scope="col">المبلغ المصروف</th>
+            <th scope="col">رقم الشيك</th>
+            <th scope="col">تاريخ الشيك</th>
+            <th scope="col">الباقي</th>
+            <th scope="col">ملاحظات</th>
+
+
+
+
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>5000</td>
+            <td>3/3/2020</td>
+            <td>5000</td>
+            <td>0</td>
+            <td>---</td>
+            <td>---</td>
+            <td>5000</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>4800</td>
+            <td>2/4/2020</td>
+            <td>9800</td>
+            <td>0</td>
+            <td>---</td>
+            <td>---</td>
+            <td>9800</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>0</td>
+            <td>---</td>
+            <td>9800</td>
+            <td>3000</td>
+            <td>125</td>
+            <td>9/7/2020</td>
+            <td>6800</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>0</td>
+            <td>---</td>
+            <td>6800</td>
+            <td>---</td>
+            <td>---</td>
+            <td>---</td>
+            <td>6800</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="mx-5 mt-5 flex-grow-1 text-right">الاستهلاك السنوي للاستثمار</div>
+    <div class="flex-grow-1 text-right table-responsive thetable" dir="rtl">
+      <table class="table">
+        <thead>
+          <tr class="bg-success text-light">
+            <th scope="col">تاريخ الشراء</th>
+            <th scope="col">حصة العضو في راس المال</th>
+            <th scope="col">عدد السنوات</th>
+            <th scope="col">النسبة المئوية</th>
+
+
+
+
+            <th scope="col">الاجمالي</th>
+
+
+
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2020-1-1</td>
+            <td>10</td>
+            <td>3</td>
+            <td>30%</td>
+            <td>422</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="flex-grow-1 text-right row d-sm-flex flex-row-reverse my-3 mx-5">
+      <div class="col-sm m-0 p-0">
+        <button type="button" class="btn btn-outline-success m-2"
+          (click)="openDialog(investments[x].index)">تعديل</button>
+      </div>
+      <div class="col-sm m-0 p-0">
+        <button type="button" class="btn btn-outline-success m-2" (click)="deleteDialog(investments[x].index)">حذف
+          الاستثمار</button>
+      </div>
+    </div>
+  </div>
+  <button type="button" class="btn btn-dark m-5" routerLink="/newinvestment">اضافة استثمار <i
+      class="fas fa-user-plus"></i></button>
+</div>

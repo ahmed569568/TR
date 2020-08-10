@@ -1,0 +1,14 @@
+.thecard {
+    width: max-content;
+    height: max-content;
+    
+}
+.bigFont {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    grid-template-rows: 200px 200px 200px;
+    grid-gap: 20px;
+  }
+  .thebutton {
+      font-size: smaller;
+  }

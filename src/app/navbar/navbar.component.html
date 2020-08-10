@@ -1,0 +1,103 @@
+<nav class="navbar navbar-expand-md navbar-dark barbg d-md-flex flex-row-reverse" *ngIf="members">
+  <a class="navbar-brand d-flex flex-row-reverse"><button type="button" id="sidebarCollapse"
+      class="btn btn-dark ml-3 pt-2" (click)="toggle()" >
+      <div class="menu">
+        <span [class.one]="!menuHidden"></span>
+        <span [class.two]="!menuHidden"></span>
+        <span [class.three]="!menuHidden"></span>
+      </div>
+      </button><svg xmlns="http://www.w3.org/2000/svg" width="181.032"
+      height="183.401" viewBox="0 0 181.032 183.401" class="logo" routerLink="/main">
+      <g id="Group_95" data-name="Group 95" transform="translate(-1004.291 -540.599)">
+        <g id="Group_63" data-name="Group 63" transform="translate(21.304)">
+          <g id="Group_1" data-name="Group 1" transform="translate(982.987 540.599)">
+            <path id="Path_1" data-name="Path 1"
+              d="M314.088,221.984a68.065,68.065,0,0,0-10.257-.774,67.257,67.257,0,0,0-51.508,23.958,91.584,91.584,0,0,1,137.178-22.4"
+              transform="translate(-241.147 -201.253)" fill="#fff" />
+            <path id="Path_2" data-name="Path 2"
+              d="M325.34,317.681a67.418,67.418,0,0,1-95.225-34.327A91.676,91.676,0,0,0,408.8,283.6"
+              transform="translate(-230.115 -171.21)" fill="#fff" />
+            <path id="Path_3" data-name="Path 3" d="M230.115,283.536" transform="translate(-51.426 -171.143)" fill="fff"
+              stroke="#1a1818" stroke-miterlimit="10" stroke-width="0.913" />
+            <path id="Path_4" data-name="Path 4"
+              d="M334.147,310.254a91.862,91.862,0,0,0-30.335-90.875s-30.869-19.395-75.413-.787h0a67.453,67.453,0,0,1,22.284,125.741l-.944.507,2.721.794c54.2,7,81.687-35.379,81.687-35.379"
+              transform="translate(-155.458 -197.861)" fill="#fff" />
+          </g>
+          <g id="Group_2" data-name="Group 2" transform="translate(1004.903 585.958)">
+            <path id="Path_5" data-name="Path 5" d="M302.564,318.156V267.289h-20.1v-13.7h58.264v13.7h-22.84v50.867Z"
+              transform="translate(-282.467 -227.461)" fill="#fff" />
+            <path id="Path_6" data-name="Path 6"
+              d="M338.569,234.46H282.623V247.2h55.946a17.146,17.146,0,0,1,17.126,17.126v1.608c0,9.418-11.147,20.565-20.565,20.565a6.369,6.369,0,0,0-5.031,10.276l22.026,28.38H367.83l-2.612-3.908L346.26,296.82c12.157-5.23,22.174-18.152,22.174-30.886v-1.608A29.9,29.9,0,0,0,338.569,234.46Z"
+              transform="translate(-282.41 -234.46)" fill="#fff" />
+          </g>
+        </g>
+      </g>
+    </svg>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    (click)="fun()">
+    <i [ngClass]="x === 0 ? 'fas fa-sort-down' : 'fas fa-sort-up'"></i>
+  </button>
+
+  <div class="collapse navbar-collapse thenav" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto d-flex barbg w-100">
+      <li class="nav-item m-auto text-center">
+        <img src="https://via.placeholder.com/40" alt="" class="nav-link rounded-circle" href="#" tabindex="-1"
+          aria-disabled="true" />
+      </li>
+
+      <li class="nav-item m-auto">
+        <a class="nav-link icon" routerLink="/notifications" tabindex="-1" aria-disabled="true"><i
+            class="fas fa-bell fa-lg my-auto"></i><span
+            class="num badge badge-secondary rounded-pill thebadge">2</span></a>
+      </li>
+      <li class="nav-item m-auto">
+        <i class="fas fa-calculator fa-lg white ml-2" (click)="toggleCalculator()"></i>
+      </li>
+      <li class="nav-item my-auto flex-grow-1 search">
+        <div class="input-group mb-2">
+          <input matInput [formControl]="myControl" [matAutocomplete]="auto" type="text"
+            class="form-control rounded-left" dir="rtl" id="inlineFormInputGroup" placeholder="ابحث هنا" />
+          <div class="input-group-prepend">
+            <div class="input-group-text rounded-right">
+              <i class="fas fa-search fa-lg"></i>
+            </div>
+          </div>
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of filteredOptions | async" [routerLink]="['/members', option.index]">
+              {{ option.name }}
+            </mat-option>
+          </mat-autocomplete>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div id="calculator" class="ui-widget-content" *ngIf="show3" ngDraggable>
+  <div id="screen">
+    <p id="value">0</p>
+  </div>
+  <div class="button">C</div>
+  <div class="button">&plusmn;</div>
+  <div class="button">%</div>
+  <div class="button calc-button">&divide;</div>
+
+  <div class="button number">7</div>
+  <div class="button number">8</div>
+  <div class="button number">9</div>
+  <div class="button calc-button">&#xd7;</div>
+
+  <div class="button number">4</div>
+  <div class="button number">5</div>
+  <div class="button number">6</div>
+  <div class="button calc-button">-</div>
+
+  <div class="button number">1</div>
+  <div class="button number">2</div>
+  <div class="button number">3</div>
+  <div class="button calc-button">+</div>
+
+  <div class="button long-button number">0</div>
+  <div class="button">.</div>
+  <div class="button calc-button bottom-right">=</div>
+</div>

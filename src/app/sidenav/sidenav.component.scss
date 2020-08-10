@@ -1,0 +1,41 @@
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    background: #444;
+    color: #fff;
+    transition: all 0.3s;
+    position: fixed;
+    right: -250px;
+    top: 70px;
+    bottom: 0;
+    overflow-y: scroll;
+    z-index: 2;
+}
+
+#sidebar.active {
+    right: 0;
+}
+.bigfont {
+    font-size: larger;
+}
+.bgg {
+    background: #444;;
+}
+.list-group-item {
+    cursor: pointer;
+}
+@media (min-width: 768px){
+    #sidebar {
+        right: 0;
+    }
+    #sidebar.active {
+        right: -250px;
+    }
+}
+/////
+.components{
+    font-size: 16px;
+    i{
+        margin-left: 15px !important;
+    }
+}
